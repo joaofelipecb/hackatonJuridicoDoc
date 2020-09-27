@@ -9,7 +9,9 @@ CREATE TABLE `conflits` (
 	`demand_id` INT(11) NULL DEFAULT NULL,
 	PRIMARY KEY (`conflit_id`),
 	INDEX `demand_id` (`demand_id`) USING BTREE,
-	CONSTRAINT `demand_id` FOREIGN KEY (`demand_id`) REFERENCES `hackaton`.`demands` (`demand_id`) ON UPDATE RESTRICT ON DELETE RESTRICT
+	CONSTRAINT `demand_id` FOREIGN KEY (`demand_id`) REFERENCES `hackaton`.`demands` (`demand_id`) ON UPDATE RESTRICT ON DELETE RESTRICT,
+	CONSTRAINT `subject_id` FOREIGN KEY (`conflit_cod_assunto`) REFERENCES `subjects` (`subject_id`),
+	CONSTRAINT `process_classes_id` FOREIGN KEY (`conflit_cod_classe_processual`) REFERENCES `process_classes` (`process_classes_id`)
 )
 COLLATE='utf8mb4_general_ci'
 ;
